@@ -1,0 +1,66 @@
+Arguments: 
+  /opt/homebrew/Cellar/node/22.0.0/bin/node /usr/local/Cellar/yarn/1.22.11/libexec/bin/yarn.js policies set-version 3.6.4
+
+PATH: 
+  /Users/abyel26/.npm/_npx/dea611a43221eddd/node_modules/.bin:/Users/abyel26/Downloads/Projects/ls/AIMoodMatch/node_modules/.bin:/Users/abyel26/Downloads/Projects/ls/node_modules/.bin:/Users/abyel26/Downloads/Projects/node_modules/.bin:/Users/abyel26/Downloads/node_modules/.bin:/Users/abyel26/node_modules/.bin:/Users/node_modules/.bin:/node_modules/.bin:/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Applications/VMware Fusion.app/Contents/Public:/Users/abyel26/.rvm/bin
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  22.0.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: Release not found: 3.6.4
+      at /usr/local/Cellar/yarn/1.22.11/libexec/lib/cli.js:90309:17
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.22.11/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.22.11/libexec/lib/cli.js:321:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+npm manifest: 
+  {
+    "name": "UI",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+      "android": "react-native run-android",
+      "ios": "react-native run-ios",
+      "lint": "eslint .",
+      "start": "react-native start",
+      "test": "jest"
+    },
+    "dependencies": {
+      "react": "18.2.0",
+      "react-native": "0.74.1"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.20.0",
+      "@babel/preset-env": "^7.20.0",
+      "@babel/runtime": "^7.20.0",
+      "@react-native/babel-preset": "0.74.83",
+      "@react-native/eslint-config": "0.74.83",
+      "@react-native/metro-config": "0.74.83",
+      "@react-native/typescript-config": "0.74.83",
+      "@types/react": "^18.2.6",
+      "@types/react-test-renderer": "^18.0.0",
+      "babel-jest": "^29.6.3",
+      "eslint": "^8.19.0",
+      "jest": "^29.6.3",
+      "prettier": "2.8.8",
+      "react-test-renderer": "18.2.0",
+      "typescript": "5.0.4"
+    },
+    "engines": {
+      "node": ">=18"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
