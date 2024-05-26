@@ -1,6 +1,5 @@
-// CameraScreen.tsx
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 import { Camera, useCameraDevices } from 'react-native-vision-camera';
 
 const CameraScreen = () => {
@@ -9,18 +8,21 @@ const CameraScreen = () => {
   const devices = useCameraDevices();
   const device = devices.front; // Front camera for selfies
 
-  useEffect(() => {
+useEffect(() => {
     const getPermissions = async () => {
-      const cameraPermission = await Camera.requestCameraPermission();
-      const microphonePermission = await Camera.requestMicrophonePermission();
-      setHasPermission(
-        cameraPermission === 'authorized' &&
-        microphonePermission === 'authorized'
-      );
+        const cameraPermission = await Camera.requestCameraPermission();
+        const microphonePermission = await Camera.requestMicrophonePermission();
+        const permissionsGranted =
+            cameraPermission === 'granted' &&
+            microphonePermission === 'granted';
+        console.log('Camera Permission:', cameraPermission);
+        console.log('Microphone Permission:', microphonePermission);
+        console.log('Permissions Granted:', permissionsGranted);
+        setHasPermission(permissionsGranted);
     };
 
     getPermissions();
-  }, []);
+}, []);
 
   const takePicture = async () => {
     if (camera.current) {
@@ -38,7 +40,12 @@ const CameraScreen = () => {
   };
 
   if (device == null || !hasPermission) {
-    return <Text>Waiting for camera...</Text>;
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#0000ff" />
+        <Text>Waiting for camera...</Text>
+      </View>
+    );
   }
 
   return (
@@ -60,6 +67,11 @@ const CameraScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   container: {
     flex: 1,
     flexDirection: 'column',

@@ -5,7 +5,7 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to the Camera App</Text>
+      <Text style={styles.title}>Welcome to the Camera App3</Text>
       <Button
         title="Open Camera"
         onPress={() => navigation.navigate('Camera')}
