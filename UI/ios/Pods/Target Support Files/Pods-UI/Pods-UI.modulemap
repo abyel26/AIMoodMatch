@@ -1,0 +1,6 @@
+module Pods_UI {
+  umbrella header "Pods-UI-umbrella.h"
+
+  export *
+  module * { export * }
+}
