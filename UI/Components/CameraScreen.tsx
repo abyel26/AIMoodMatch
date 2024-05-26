@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Alert, ActivityIndicator } from 'react-native';
-import { Camera, useCameraDevices } from 'react-native-vision-camera';
+import { Camera, useCameraDevice } from 'react-native-vision-camera';
 
 const CameraScreen = () => {
   const camera = useRef<Camera>(null);
   const [hasPermission, setHasPermission] = useState(false);
-  const devices = useCameraDevices();
-  const device = devices.front; // Front camera for selfies
+  const device =  useCameraDevice('front'); // Front camera for selfies
 
 useEffect(() => {
     const getPermissions = async () => {
@@ -31,7 +30,7 @@ useEffect(() => {
           quality: 85,
           skipMetadata: true,
         });
-        console.log(photo.uri); // You can use the image URI here
+        console.log('uri ' + photo.uri); // You can use the image URI here
       } catch (error) {
         console.error(error);
         Alert.alert('Error', 'Failed to take picture');
@@ -40,6 +39,7 @@ useEffect(() => {
   };
 
   if (device == null || !hasPermission) {
+    console.log(device);
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0000ff" />
